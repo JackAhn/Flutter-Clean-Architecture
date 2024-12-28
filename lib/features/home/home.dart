@@ -8,6 +8,7 @@ import '../../../utils/context_extensions.dart';
 
 import '../../common/app_bar_gone.dart';
 import '../../common/bottom_nav_bar/bottom_nav_bar.dart';
+import 'domain/count_result.dart';
 import 'widgets/header.dart';
 import 'widgets/social_tile_widget.dart';
 import 'widgets/theme_widget.dart';
@@ -29,6 +30,7 @@ class HomeScreen extends ConsumerWidget {
           const Divider(),
           const ThemeWidget(),
           const LanguageTile(),
+          const UnionTestTile(),
           ListView.separated(
             itemCount: 4,
             shrinkWrap: true,
@@ -102,4 +104,37 @@ class LanguageTile extends StatelessWidget {
       ),
     );
   }
+}
+
+// Freezed Union Type Test Tile
+class UnionTestTile extends StatelessWidget {
+  const UnionTestTile({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final TextEditingController controller = TextEditingController();
+    return ListTile(
+      title: const Text('테스트'),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Flexible(child: TextField(
+            controller: controller,
+          )),
+          Flexible(flex: 2,  child: ElevatedButton(onPressed: (){
+            final result = int.tryParse(controller.text) != null ?
+            Result.success(int.parse(controller.text))
+                : const Result.failure('숫자가 아닙니다.');
+            result.when(
+                success: (value) {
+                  print('$value를 입력함');
+                },
+                failure: (fail) {
+                  print(fail);
+                });
+          }, child: Text('완료')))
+        ],
+      ),
+    );
+  }
+
 }

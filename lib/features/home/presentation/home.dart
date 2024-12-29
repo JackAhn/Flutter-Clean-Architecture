@@ -4,14 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../../../utils/context_extensions.dart';
+import '../../../../utils/context_extensions.dart';
 
-import '../../common/app_bar_gone.dart';
-import '../../common/bottom_nav_bar/bottom_nav_bar.dart';
-import 'domain/count_result.dart';
-import 'presentation/header.dart';
-import 'presentation/social_tile_widget.dart';
-import 'presentation/theme_widget.dart';
+import '../../../common/app_bar_gone.dart';
+import '../../../common/bottom_nav_bar/bottom_nav_bar.dart';
+import '../../counter/presentation/views/counter_widget.dart';
+import '../domain/count_result.dart';
+import 'header.dart';
+import 'social_tile_widget.dart';
+import 'theme_widget.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -31,6 +32,7 @@ class HomeScreen extends ConsumerWidget {
           const ThemeWidget(),
           const LanguageTile(),
           const UnionTestTile(),
+          const CounterWidget(),
           ListView.separated(
             itemCount: 4,
             shrinkWrap: true,

@@ -9,9 +9,9 @@ import '../../../utils/context_extensions.dart';
 import '../../common/app_bar_gone.dart';
 import '../../common/bottom_nav_bar/bottom_nav_bar.dart';
 import 'domain/count_result.dart';
-import 'widgets/header.dart';
-import 'widgets/social_tile_widget.dart';
-import 'widgets/theme_widget.dart';
+import 'presentation/header.dart';
+import 'presentation/social_tile_widget.dart';
+import 'presentation/theme_widget.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -136,5 +136,4 @@ class UnionTestTile extends StatelessWidget {
       ),
     );
   }
-
 }

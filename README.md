@@ -159,7 +159,7 @@ Then, create a logic for the state. For example:
 ```dart
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'counter_ui_model.dart';
+import 'counter_state.dart';
 
 part 'counter_logic.g.dart';
 
